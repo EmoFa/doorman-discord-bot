@@ -1,0 +1,16 @@
+{
+  "name": "discord-bot-test",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "EmoFa",
+  "type": "commonjs",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "discord.js": "^14.26.3",
+    "dotenv": "^17.4.2"
+  }
+}
