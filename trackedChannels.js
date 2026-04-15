@@ -4,6 +4,15 @@ const path = require('path');
 
 const filePath = path.join(__dirname, 'data.json');
 
+const defaultData = {
+    watchedChannels: [],
+    createdChannels: [],
+}
+
+if (!fs.existsSync(filePath)) {
+    fs.writeFileSync(filePath, JSON.stringify(defaultData, null, 4));
+}
+
 function load() {
     const raw = fs.readFileSync(filePath, 'utf-8');
     return JSON.parse(raw);
