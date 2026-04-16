@@ -15,7 +15,7 @@ module.exports = {
             .addFields(
                 {
                     name: 'Invite Link',
-                    value: `[Click here to invite!](https://discord.com/oauth2/authorize?client_id=${process.env.CLIENT_ID}&permissions=16796688&scope=bot+applications.commands)`,
+                    value: `[Click here to invite!](https://discord.com/oauth2/authorize?client_id=${process.env.CLIENT_ID}&permissions=16796688&integration_type=0&scope=bot+applications.commands)`,
                     inline: false,
                 },
                 {
