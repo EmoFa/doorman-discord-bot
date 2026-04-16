@@ -20,7 +20,7 @@ module.exports = {
                 },
                 {
                     name: 'What does Doorman do?',
-                    value: 'Doorman watches a voice channel and automatically creates a private channel for each user that joins, then deletes it when they leave.',
+                    value: 'Doorman watches a voice channel and automatically creates a custom channel for each user that joins, then deletes it when they leave.',
                     inline: false,
                 }
             )
