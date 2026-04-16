@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits, MessageFlags } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits, MessageFlags, ChannelType } = require('discord.js');
 const { getWatchedChannels, saveWatchedChannels } = require('../trackedChannels.js');
 
 module.exports = {
@@ -11,6 +11,7 @@ module.exports = {
                 .setName('target-channel')
                 .setDescription('The channel to watch.')
                 .setRequired(true)
+                .addChannelTypes(ChannelType.GuildVoice)
         ),
 
     async execute(interaction) {
