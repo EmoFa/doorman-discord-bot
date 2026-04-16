@@ -10,6 +10,8 @@ const client = new Client({
     ],
 });
 
+// this comment is a test
+
 // -- COMMAND HANDLER
 client.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands').filter(f => f.endsWith('.js'));
