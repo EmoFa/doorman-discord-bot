@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder, MessageFlags } = require("discord.js");
 const { getWatchedChannels } = require('../trackedChannels.js');
 
 module.exports = {
@@ -12,9 +12,36 @@ module.exports = {
         const existing = watchedChannels.find(item => item.guildId === guild.id);
 
         if (existing) {
-            await interaction.reply(`I am watching <#${existing.channelId}>!`);
+            const embed = new EmbedBuilder()
+                .setTitle('Currently watching')
+                .setDescription(`Doorman is currently watching <#${existing.channelId}>.`)
+                .setColor(0x1D9E75)
+                .setThumbnail(interaction.client.user.displayAvatarURL())
+                .addFields({
+                    name: 'Channel ID',
+                    value: existing.channelId,
+                    inline: false,
+                })
+                .setFooter({
+                    text: `Requested by ${interaction.user.username}`,
+                    iconURL: interaction.user.displayAvatarURL(),
+                })
+                .setTimestamp();
+
+            await interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
         } else {
-            await interaction.reply('I am not watching a channel :(');
+            const embed = new EmbedBuilder()
+                .setTitle('Not watching a channel')
+                .setDescription('Doorman is not watching any channel yet. Use `/set-channel` to set one up.')
+                .setColor(0xBA7517)
+                .setThumbnail(interaction.client.user.displayAvatarURL())
+                .setFooter({
+                    text: `Requested by ${interaction.user.username}`,
+                    iconURL: interaction.user.displayAvatarURL(),
+                })
+                .setTimestamp();
+
+            await interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
         }
     },
 };
